@@ -1,6 +1,7 @@
 import{OBJEKTUMLISTA} from "./adatok.js";
+import {rendezesObjektum} from "./rendezes.js";
 $(function(){
-    const articleElem = document.querySelectorAll("article");
+    const articleElem = $("article");
     tablazatKeszit(OBJEKTUMLISTA, articleElem);
 });
 function tablazatKeszit(OBJEKTUMLISTA, articleElem){
@@ -14,5 +15,5 @@ function tablazatKeszit(OBJEKTUMLISTA, articleElem){
       tablazat +="</tr>";
     }
     tablazat += "</table>";
-    articleElem[0].innerHTML += tablazat;
+    articleElem.append(tablazat);
   }
