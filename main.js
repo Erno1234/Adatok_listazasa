@@ -19,8 +19,12 @@ function init(){
 }
 function tablazatKeszit(OBJEKTUMLISTA){
     let tablazat = "<table class='table table-striped'>";
-    tablazat += " <thead class='table-dark'>";
-    tablazat += "<tr> <th id='nev'> Név: </th> <th id='kor'>Kor:</th><th id='fajta'> Fajta: </th></tr>"
+    tablazat += "<thead class='table-dark'>";
+    let fejlec ="";
+    for(let kulcs in OBJEKTUMLISTA){
+      fejlec = `<tr> <th id=${OBJEKTUMLISTA[kulcs]}> Név: </th> <th id=${OBJEKTUMLISTA[kulcs]}>Kor:</th><th id=${OBJEKTUMLISTA[kulcs]}> Fajta: </th></tr>`;
+    }
+    tablazat += fejlec;
     tablazat += "</thead>" 
     for (let index = 0; index < OBJEKTUMLISTA.length; index++) {
       tablazat +="<tr>";
