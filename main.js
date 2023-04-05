@@ -1,10 +1,9 @@
 import { OBJEKTUMLISTA } from "./adatok.js";
 import { rendezesObjektum } from "./rendezes.js";
 $(function () {
-  rendezes();
-  torles();
+  init();
 });
-function rendezes() {
+function init() {
   const articleElem = $("article");
   let tablazat = tablazatKeszit(OBJEKTUMLISTA);
   articleElem.html(tablazat);
@@ -13,24 +12,30 @@ function rendezes() {
     let kulcs = $(event.target).attr("id");
     rendezesObjektum(OBJEKTUMLISTA, kulcs);
     console.log(OBJEKTUMLISTA);
-    rendezes();
+    init();
   });
+  torles();
 }
-function torles(){
-  const torlesElem = $("td");
-  torlesElem.on("click", function(){
-    let torles = $(event.target).attr(".torles");
-  })
+function torles() {
+  const torlesElem = $(".torles");
+  console.log(torlesElem);
+  torlesElem.on("click", function () {
+    let torlesID = $(event.target).attr("id");
+    //kitörlöd az akt elemet az objektumlistából
+    console.log(torlesID);
+    OBJEKTUMLISTA.splice(torlesID, 1);
+    console.log(OBJEKTUMLISTA);
+    init();
+  });
 }
 
 function tablazatKeszit(OBJEKTUMLISTA) {
   let tablazat = "<table class='table table-striped'>";
   tablazat += "<thead class='table-dark'>";
 
-  let attributes = Object.keys(OBJEKTUMLISTA[0]);
   let fejlec = "<tr>";
-  for (let i = 0; i < attributes.length; i++) {
-    fejlec += `<th id=${attributes[i]}> ${attributes[i].toUpperCase()}: </th>`;
+  for (let key in OBJEKTUMLISTA[0]) {
+    fejlec += `<th id='${key}'>${key} </th>`;
   }
   fejlec += "</tr>";
 
@@ -39,11 +44,11 @@ function tablazatKeszit(OBJEKTUMLISTA) {
 
   for (let index = 0; index < OBJEKTUMLISTA.length; index++) {
     tablazat += "<tr>";
-    for (let i = 0; i < attributes.length; i++) {
-      if (OBJEKTUMLISTA[index][attributes[i]] == OBJEKTUMLISTA[index].torles) {
-        tablazat += "<td class='torles'>" + OBJEKTUMLISTA[index][attributes[i]] + "</td>";
+    for (let key in OBJEKTUMLISTA[index]) {
+      if (key == "torles") {
+        tablazat += `<td class='torles' id='${index}'>  ${OBJEKTUMLISTA[index][key]} </td>`;
       } else {
-        tablazat += "<td>" + OBJEKTUMLISTA[index][attributes[i]] + "</td>";
+        tablazat += "<td>" + OBJEKTUMLISTA[index][key] + "</td>";
       }
     }
     tablazat += "</tr>";

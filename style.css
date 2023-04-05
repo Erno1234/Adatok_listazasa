@@ -2,3 +2,34 @@
     text-align: center;
     color: red;
 }
+
+nav ul{
+    height: 25px;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    text-align: center;
+    list-style-type: none;
+    background-color: black;
+    
+}
+li a{
+    text-decoration: none;
+    color: white;
+}
+
+
+header h1{
+    text-align: center;
+}
+li a:hover{
+    color:red;
+}
+@media screen and (max-width: 700px){
+    nav ul{
+        grid-template-columns: 2fr;
+    }
+    
+}
+footer{
+    text-align: center;
+}
