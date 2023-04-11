@@ -2,11 +2,29 @@
     text-align: center;
     color: red;
 }
+main{
+    display: grid;
+    grid-template-areas: "h h h"
+                        "n n n"
+                        "a a a"
+                        "f f f";
+}
 
+header{
+    display: grid;
+    grid-area: h;
+}
+header h1{
+    text-align: center;
+}
+
+nav{
+    grid-area: n;
+}
 nav ul{
     height: 25px;
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 2fr 2fr; 
     text-align: center;
     list-style-type: none;
     background-color: black;
@@ -16,20 +34,44 @@ li a{
     text-decoration: none;
     color: white;
 }
-
-
-header h1{
-    text-align: center;
-}
 li a:hover{
     color:red;
 }
-@media screen and (max-width: 700px){
-    nav ul{
-        grid-template-columns: 2fr;
-    }
+
+article{
+    display: grid;
+    grid-area: a;
+    grid-template-columns: 3fr 3fr 3fr;
+}
+article div{
+    border: 1px solid black;
+    margin: 5px;
     
+}
+
+footer{
+    display: grid;
+    grid-area: f;
 }
 footer{
     text-align: center;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+@media screen and (max-width: 700px){
+    nav ul{
+        display: block;
+        
+    }
+    table {
+        font-size: 14px;
+        padding: 5px;
+        margin: 0;
+        overflow-x: auto;
+    }
 }

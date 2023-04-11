@@ -1,5 +1,6 @@
 import { OBJEKTUMLISTA } from "./adatok.js";
 import { rendezesObjektum } from "./rendezes.js";
+let szamlalo = 0;
 $(function () {
   init();
 });
@@ -8,11 +9,18 @@ function init() {
   let tablazat = tablazatKeszit(OBJEKTUMLISTA);
   articleElem.html(tablazat);
   const thElem = $("th");
+  if (thElem.on("click")){
+    szamlalo++;
+  }
   thElem.on("click", function () {
+    console.log(szamlalo)
     let kulcs = $(event.target).attr("id");
-    rendezesObjektum(OBJEKTUMLISTA, kulcs);
+    rendezesObjektum(OBJEKTUMLISTA, kulcs, szamlalo);
     console.log(OBJEKTUMLISTA);
     init();
+    if(szamlalo > 2){
+      szamlalo = 1;
+    }
   });
   torles();
 }
