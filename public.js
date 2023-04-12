@@ -1,27 +1,23 @@
 import { OBJEKTUMLISTA } from "./adatok.js";
 $(function () {
-    init();
+  init();
 });
 function init() {
-    const articleElem = $("article");
-    let kartyak =kartyaKeszit(OBJEKTUMLISTA) ;
-    articleElem.html(kartyak);
+  const articleElem = $("article");
+  let kartyak = kartyaKeszit(OBJEKTUMLISTA);
+  articleElem.html(kartyak);
 }
-function kartyaKeszit(OBJEKTUMLISTA){
-    let kartya="";
-    for (let index = 0; index < OBJEKTUMLISTA.length; index++) {
-        kartya += "<div>";
-        for (let key in OBJEKTUMLISTA[index]) {
-            
-            if (key == "nev") {
-                kartya += "<h1>"+OBJEKTUMLISTA[index][key]+ "</h1>";
-            } else {
-                kartya += "<div>" + OBJEKTUMLISTA[index][key] + "</div>";
-          }
-          
-        }
-        kartya += "</div>";
-      }
-      return (kartya);
-
+function kartyaKeszit(OBJEKTUMLISTA) {
+  let kartya = "";
+  for (let index = 0; index < OBJEKTUMLISTA.length; index++) {
+    kartya += "<div class='card' style='width:400px'>";
+    kartya += "<div class='card-body'>";
+    for (let key in OBJEKTUMLISTA[index]) {
+      kartya += `<p class='card-text'> ${OBJEKTUMLISTA[index][key]}</p>`;
+    }
+    kartya += "<button class='btn btn-primary'>See Profile</>";
+    kartya += "</div>";
+    kartya += "</div>";
+  }
+  return kartya;
 }

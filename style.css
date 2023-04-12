@@ -41,7 +41,7 @@ li a:hover{
 article{
     display: grid;
     grid-area: a;
-    grid-template-columns: 3fr 3fr 3fr;
+    grid-template-columns: 3fr;
 }
 article div{
     border: 1px solid black;
