@@ -23,23 +23,23 @@
           <li><a href="index.html">Admin felület</a></li>
         </ul>
       </nav>
+      <section>
+      <form action="">
+        <fieldset>
+          <legend>Hozzáadás</legend>
+          <label for="nev">Név:</label>
+          <input type="text" id="nev" name="nev" placeholder="Név" required pattern="^[A-Z][a-zA-Z]{2,}$"/>
+          <label for="faj">Fajta:</label>
+          <input type="text" id="faj" name="faj" placeholder="Faj" required/>
+          <label for="kor">Kor:</label>
+          <input type="text" id="kor" name="kor" placeholder="Kor" required/>
+          <input type="submit" value="Küld" id="kuld"/>
+          <span id="nevhiba"></span>
+        </fieldset>
+      </form>
+    </section>
       <article>
-        <form action="">
-          <fieldset>
-            <legend>Űrlap címe</legend>
-            <label for="nev">Név:</label>
-            <input
-              type="text"
-              id="nev"
-              name="nev"
-              placeholder="név"
-              required
-              pattern="^[A-Z][a-zA-Z]{2,}$"
-            />
-            <input type="submit" value="Küld" id="kuld" />
-            <span id="nevhiba"></span>
-          </fieldset>
-        </form>
+        
       </article>
       <footer>Pálóci Ernő</footer>
     </main>

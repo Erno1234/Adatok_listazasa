@@ -6,12 +6,12 @@ main{
     display: grid;
     grid-template-areas: "h h h"
                         "n n n"
+                        "s s s"
                         "a a a"
                         "f f f";
 }
 
 header{
-    display: grid;
     grid-area: h;
 }
 header h1{
@@ -39,18 +39,20 @@ li a:hover{
 }
 
 article{
-    display: grid;
     grid-area: a;
-    grid-template-columns: 3fr;
+
 }
 article div{
     border: 1px solid black;
     margin: 5px;
     
 }
+section{
+    grid-area: s;
+}
 
 footer{
-    display: grid;
+
     grid-area: f;
 }
 footer{
