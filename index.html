@@ -26,14 +26,23 @@
       <section>
       <form action="">
         <fieldset>
-          <legend>Hozzáadás</legend>
+          <legend>Keresés:</legend>
+          <label for="nevsz">Név:</label>
+          <input type="text" id="nevsz" name="nevsz"/>
+          <label for="fajsz">Faj:</label>
+          <input type="text" id="fajsz" name="fajsz"/>
+          <label for="korsz">Kor:</label>
+          <input type="text" id="korsz" name="korsz"/>
+        </fieldset>
+        <fieldset>
+          <legend>Hozzáadás:</legend>
           <label for="nev">Név:</label>
           <input type="text" id="nev" name="nev" placeholder="Név" required pattern="^[A-Z][a-zA-Z]{2,}$"/>
           <label for="faj">Fajta:</label>
           <input type="text" id="faj" name="faj" placeholder="Faj" required/>
           <label for="kor">Kor:</label>
           <input type="text" id="kor" name="kor" placeholder="Kor" required/>
-          <input type="submit" value="Küld" id="kuld"/>
+          <button type="submit">Küld</button>
           <span id="nevhiba"></span>
         </fieldset>
       </form>
