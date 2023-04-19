@@ -19,29 +19,29 @@
       <header><h1>Adatok listázása</h1></header>
       <nav>
         <ul>
-          <li><a href="publikus.html">Kutyák adatainak megtekintése</a></li>
           <li><a href="index.html">Admin felület</a></li>
+          <li><a href="publikus.html">Kutyák adatainak megtekintése</a></li>        
         </ul>
       </nav>
       <section>
       <form action="">
         <fieldset>
           <legend>Keresés:</legend>
-          <label for="nevsz">Név:</label>
-          <input type="text" id="nevsz" name="nevsz"/>
-          <label for="fajsz">Faj:</label>
-          <input type="text" id="fajsz" name="fajsz"/>
-          <label for="korsz">Kor:</label>
-          <input type="text" id="korsz" name="korsz"/>
+          <label for="nevsz"></label>
+          <input type="text" placeholder="Név szerint:" id="nevsz" name="nevsz"/>
+          <label for="fajsz"></label>
+          <input type="text" placeholder="Faj szerint:" id="fajsz" name="fajsz"/>
+          <label for="korsz"></label>
+          <input type="text" placeholder="Kor szerint:" id="korsz" name="korsz"/>
         </fieldset>
         <fieldset>
           <legend>Hozzáadás:</legend>
-          <label for="nev">Név:</label>
-          <input type="text" id="nev" name="nev" placeholder="Név" required pattern="^[A-Z][a-zA-Z]{2,}$"/>
-          <label for="faj">Fajta:</label>
-          <input type="text" id="faj" name="faj" placeholder="Faj" required/>
-          <label for="kor">Kor:</label>
-          <input type="text" id="kor" name="kor" placeholder="Kor" required/>
+          <label for="nev"></label>
+          <input type="text" id="nev" name="nev" placeholder="Név:" required pattern="^[A-Z][a-zA-Z]{2,}$"/>
+          <label for="faj"></label>
+          <input type="text" id="faj" name="faj" placeholder="Faj:" required/>
+          <label for="kor"></label>
+          <input type="text" id="kor" name="kor" placeholder="Kor:" required/>
           <button type="submit">Küld</button>
           <span id="nevhiba"></span>
         </fieldset>

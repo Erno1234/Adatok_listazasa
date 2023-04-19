@@ -34,27 +34,27 @@ li a{
     text-decoration: none;
     color: white;
 }
+
 li a:hover{
     color:red;
 }
 
+
 article{
     grid-area: a;
-
-}
-article div{
-    border: 1px solid black;
     
 }
+#publikus{
+    border: 1px solid black;
+}
+
 section{
     grid-area: s;
+    margin-bottom: 10px;
 }
 
 footer{
-
     grid-area: f;
-}
-footer{
     text-align: center;
 }
 
@@ -75,4 +75,24 @@ table{
         margin: 0;
         overflow-x: auto;
     }
+    nav{
+        background-color: black;
+        padding-bottom: 5px;
+    }
+    nav ul{
+        display: grid;
+        grid-template-columns: 1fr;
+        
+    }
 }
+
+  fieldset {
+    border: none;
+    padding: 0;
+  }
+  
+  @media only screen and (min-width: 600px) {
+    section {
+      grid-template-columns: 1fr;
+    }
+  }

@@ -6,11 +6,11 @@ function init() {
   const articleElem = $("article");
   let kartyak = kartyaKeszit(OBJEKTUMLISTA);
   articleElem.html(kartyak);
-  
+
   const gombELEM = $(".megjelenit");
   gombELEM.on("click", function () {
-    let index = $(event.target).attr("id")
-    Modal(OBJEKTUMLISTA, index );
+    let index = $(event.target).attr("id");
+    Modal(OBJEKTUMLISTA, index);
   });
 }
 
@@ -33,7 +33,7 @@ function kartyaKeszit(OBJEKTUMLISTA) {
     kartya += "</div>";
   }
   kartya += "</div>";
-  kartya+=`
+  kartya += `
   <div class="modal" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -41,7 +41,6 @@ function kartyaKeszit(OBJEKTUMLISTA) {
  
         <div class="modal-header">
           <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
  
         <div class="modal-body">
@@ -49,52 +48,53 @@ function kartyaKeszit(OBJEKTUMLISTA) {
   
       
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="bal" class="btn btn-primary" >Balra</button>
+          <button type="button" id="jobb" class="btn btn-primary" >Jobbra</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Bezár</button> 
         </div>
   
       </div>
     </div>
-  </div>`
+  </div>`;
   return kartya;
 }
+
 
 function Modal(OBJEKTUMLISTA, index) {
   console.log(index);
   console.log(OBJEKTUMLISTA[index].nev);
 
   let modalTitleElem = $(".modal-title");
-  modalTitleElem.html(OBJEKTUMLISTA[index].nev)
+  modalTitleElem.html(OBJEKTUMLISTA[index].nev);
   let modalBodyElem = $(".modal-body");
   modalBodyElem.html(` <p>${OBJEKTUMLISTA[index].fajta}</p>
-  <p>${OBJEKTUMLISTA[index].kor}</p>`)
- /*  `
+  <p>${OBJEKTUMLISTA[index].kor}</p>`);
 
-        <h4 class="modal-title">${OBJEKTUMLISTA[index].nev}</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <div class="modal-body">
-       
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Balra</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Jobbra</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Bezár</button> 
-      </div>
-
-    </div>
-  </div>
-</div>`; */
-    
-  const balGomb = $("#bal");
-  balGomb.on("click", function () {
-    index--;
-    console.log(index);
+  $("#bal").on("click", function () {
+    index = BalraLep(OBJEKTUMLISTA, index);
+    Modal(OBJEKTUMLISTA, index);
   });
-  const jobbGomb = $("#jobb");
-  jobbGomb.on("click", function () {
-    index++;
 
+  $("#jobb").on("click", function () {
+    index = JobbraLep(OBJEKTUMLISTA, index);
+    Modal(OBJEKTUMLISTA, index);
   });
+}
+
+function BalraLep(OBJEKTUMLISTA, balSzamlalo) {
+  if (balSzamlalo == 0) {
+    balSzamlalo = OBJEKTUMLISTA.length - 1;
+  } else {
+    balSzamlalo--;
+  }
+  return balSzamlalo;
+}
+
+function JobbraLep(OBJEKTUMLISTA, jobbSzamlalo) {
+  if (jobbSzamlalo >= OBJEKTUMLISTA.length - 1) {
+    jobbSzamlalo = 0;
+  } else {
+    jobbSzamlalo++;
+  }
+  return jobbSzamlalo;
 }
